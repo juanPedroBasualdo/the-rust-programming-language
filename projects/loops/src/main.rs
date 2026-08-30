@@ -25,7 +25,7 @@ fn main() {
         println!("Contador: {count}");
         let mut remaining = 10;
 
-        loop {
+        loop { // counting_down
             println!("Queda: {remaining}");
             if remaining == 9 {
                 break; // Este break rompe con counting_down, break a secas funciona solo para el loop más interno.
@@ -55,20 +55,17 @@ fn main() {
     let a = [10, 20, 30, 40, 50];
     let mut index = 0;
 
-    // Opción while
-    while index < 5 {
+    while index < 5 { // Opción while
         println!("El valor es: {:?}", a[index]);
 
         index += 1;
     }
 
-    // Mismo algoritmo con for
-    for element in a {
+    for element in a { // Mismo algoritmo con for
         println!("El valor es: {:?}", element);
     }
 
-    // Algoritmo de cuenta atras versión for
-    for number in (1..4).rev() {
+    for number in (1..4).rev() { // Algoritmo de cuenta atras versión for
         println!("{:?}!", number);
     }
     println!("LIFTOFF!!!");
