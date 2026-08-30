@@ -80,5 +80,4 @@ fn main() {
         "El valor del elemento en el índice {index} es: {element}"
     ); 
 
-    // Funciones
 }
