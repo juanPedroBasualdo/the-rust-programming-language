@@ -37,7 +37,7 @@ fn main() {
     let _f = false;
 
     // Tipo caracter
-    let _c = 'z'; // Un byte en formato ASCII u8 ('z' = 122 en u8)
+    let _c = 'z'; // Un byte en formato Unicode escalar u8.
     let _z = 'Z';
 
     // Tipo tupla
