@@ -7,4 +7,3 @@ mod serving {
 
     fn take_payment() {}
 }
-
