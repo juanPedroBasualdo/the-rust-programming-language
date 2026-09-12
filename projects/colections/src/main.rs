@@ -1,6 +1,8 @@
+use std::collections::HashMap;
+
 fn main() {
     // Vectores
-    
+
     let _v: Vec<i32> = Vec::new();
     let _v = vec![1, 2, 3]; // Tipo inferido por el valor que contiene.
 
@@ -107,7 +109,39 @@ fn main() {
         println!("{c}");
     } // .bytes() devuelve un tipo de dato tipo Bytes<'_> que tiene las mismas características que Chars<'_>.
 
-    
+    // HashMap
 
+    let _hm: HashMap<String, i32> = HashMap::new();
+    let mut scores = HashMap::new(); // Tipo implicito a partir de valores agregados.
+    scores.insert("blue".to_string(), 10);
+    scores.insert("yellow".to_string(), 50);
+
+    // Acceder a valores de un HashMap
+    let team_name = "blue".to_string();
+    let score = scores.get(&team_name).copied().unwrap_or(0); // Get devuelve Option<&v> donde Some(&v) es la referencia del valor de la key del HashMap o None si la key no existe. .copied() hace que devuelva una copia del valor como Option<v>, siguiendo la misma idea que .get(). Por ultimo unwrap devuelve el valor en Option<v> a menos que sea None donde el _or(0) hace que devuelva 0.
+    println!("Puntaje del equipo azul: {score}");
+
+    for (key, value) in &scores {
+        println!("{key}: {value}")
+    } // Patern matching en loop con for.
+
+    // Agregando valores a un HashMap
+    let mut scores = HashMap::new();
+    scores.insert("blue".to_string(), 10);
+    scores.insert("blue".to_string(), 20); // Esto reemplaza el valor de la key "blue".
+    println!("{:?}", scores);
+
+    scores.entry("yellow".to_string()).or_insert(50);
+    scores.entry("blue".to_string()).or_insert(50); // Aquí solo se inserta el valor si la key no existe.
+    println!("{:?}", scores);
+
+    let text = "Hola mundo hermoso mundo";
+    let mut map = HashMap::new();
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);
+        *count += 1;
+    }
+
+    println!("{:?}", map);
 
 }
